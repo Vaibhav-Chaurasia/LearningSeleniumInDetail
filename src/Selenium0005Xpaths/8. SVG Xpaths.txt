@@ -1,0 +1,66 @@
+SVG Xpaths
+What is SVG element in Selenium?
+The SVG element has the tag name svg. It has attributes like width, height, viewBox, and so on. To click the element with svg, we should identify the element then utilize the Actions class.
+
+
+We can use xpath to grab SVG elements with Selenium webdriver. A SVG element is identified with tagname svg. The svg image has the attributes like width and height attributes.
+
+To create a xpath for a svg element, we have the syntax as //*[local-name()='svg'].
+
+The local-name function is mandatory for creating a xpath of a svg element. So for the xpath expression for the image highlighted in the above image should be −
+
+//*[local-name()='svg' and @data-icon='home']/*[local-name()='path']
+Here, data-icon is an attribute of the svg tag element which is added accompanied with @ symbol. 
+The [local-name()='path'] is included since it is the child of the svg tagname.
+
+
+
+The image which is a SVG element before the Home menu gets highlighted with our XPath.
+
+1. Starting with SVG Elements and identify elements in svg
+//*[name()='svg']//*[local-name()='circle']
+
+String color = driver.findelement(By.xpath("//*[name()='svg']//*[local-name()='circle']").getAttribute("fill");
+System.out.println(color);
+
+
+2. Get SVG text via id 
+//*[name()='svg']//*[local-name()='text' and @id='pointline']
+
+String text = driver.findelement(By.xpath("//*[name()='svg']//*[local-name()='text' and @id='pointline']").getText();
+System.out.println(text);
+
+
+3. Hanling dynamic coordinates
+driver.switchTo().frame("svg_result");
+while(true){
+
+List <WebElement> eleList = driver.findElements(By.xpath("//*[name()='svg']//*[local-name()='g' and @id='g2']//*[local-name()='path' and contains(@id, 'face')]"));
+
+for (WebElement ele: eleList){
+String text = null;
+text = ele.getAttribute("d);
+System.out.println(text);
+}
+}
+
+
+4. Similar class name
+("//*[name()='svg']//*[local-name()='path' and @class='_2BhAHa'])[1]
+
+
+
+
+Google Suggestions pick via dynamic xpath
+
+List<WebElement> list = driver.findElements(By.xpath("//ul[@role='listbox']//li/descendant::div[@class='sbqs_c']");
+
+System.out.println("total number of suggestions in search box :: ==>" + list.size());
+
+for(int i = 0; i<list.size(); i++){
+	System.out.println(list.get(i).getText());
+	if(list.get(i).getText().contains("Java Tutorial")){
+	list.get(i).click);
+	break;
+	}
+}

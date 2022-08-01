@@ -1,0 +1,77 @@
+Xpaths Via Coding
+1. Create xpath template for dynamic path (For e.g. total = 300)
+public class XpathGen {
+
+	//input[@id="{0}"]
+	//input[@id="{0}" and @name="{1}"]
+
+	public static String createXpath(String xpathExp, Object ...args){
+		for(int i=0; i<args.length; i++){
+			xpathExp = xpathExp.replace("{"+i+"}", (CharSequence) args[i]);
+		}
+		return xpathExp;
+	}
+
+	public static void main(String[] args){
+	String x1 = createXpath("//input[@id='{0}']", "test");
+	System.out.println(x1);
+
+	String x2 = createXpath("//input[@id='{0}' and @name='{1}']", "email", "username");
+	System.out.printlin(x2);
+}
+}
+
+
+2. Create xpath template for dynamic path (For e.g. total = 300) and use them in xpath
+public class XpathGen {
+
+	//input[@id="{0}"]
+	//input[@id="{0}" and @name="{1}"]
+
+	public static By email = By.xpath(createXpath("//input[@id='{0}']", "vaicha.oracle@gmail.com")); 	
+
+	public static String createXpath(String xpathExp, Object ...args){
+	for(int i=0; i<args.length; i++){
+		xpathExp = xpathExp.replace("{"+i+"}", (CharSequence) args[i]);
+	}
+	return xpathExp;
+    }
+
+	public static void main(String[] args){
+	String x1 = createXpath("//input[@id='{0}']", "test");
+	System.out.println(x1);
+
+	String x2 = createXpath("//input[@id='{0}' and @name='{1}']", "email", "username");
+	System.out.printlin(x2);
+}
+}
+
+
+
+2. Create xpath template for dynamic path (For e.g. total = 300) and use them in xpath and replace it by substring
+public class XpathGen {
+
+	//input[@id="{0}"]
+	//input[@id="{0}" and @name="{1}"]
+
+	public static By email = By.xpath(createXpath("//input[@id='{0}']", "vaicha.oracle@gmail.com")); 	
+
+	public static String createXpath(String xpathExp, Object ...args){
+	for(int i=0; i<args.length; i++){
+		xpathExp = xpathExp.replace("{"+i+"}", (CharSequence) args[i]);
+	}
+	return xpathExp;
+    }
+
+	public static void main(String[] args){
+	String x1 = createXpath("//input[@id='{0}']", "test");
+	System.out.println(x1);
+
+	String x2 = createXpath("//input[@id='{0}' and @name='{1}']", "email", "username");
+	System.out.printlin(x2);
+
+	String x3 = createXpath("//input[@id='{0}' and @name='{1}' and @type='{2}']", "email", "username", "text");
+	System.out.printlin(email.toString().substring(email.toString().indexOf("//")));
+
+}
+}

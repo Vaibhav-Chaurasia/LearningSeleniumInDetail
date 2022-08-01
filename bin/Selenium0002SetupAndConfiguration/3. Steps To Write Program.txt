@@ -1,0 +1,15 @@
+Steps to write First Program in Java in Eclipse
+1. Go to File
+2. Go to New Option
+3. Choose Java Project
+4. Give Project Name
+5. Choose either default location or any location you want (optional)
+6. Click on Finish button
+7. Right Click on "src" folder -> Go to new option
+8. Choose "package"
+9. Give the package name i.e. folder name. For e.g. FirstProgram -> Click on Finish button
+10. Now Right click on Package created -> Go to new option -> Choose "Class" option
+11. Enter class name. For e.g. HelloWorld -> Click on Finish button
+12. Finally, you are there.
+
+START WRITING YOUR PROGRAM!!!

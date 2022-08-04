@@ -1,0 +1,66 @@
+What are keyboard events in Selenium?
+A Keyboard Event describes a user's interaction with the keyboard. When a user presses single or multiple keys, keyboard events generate. Selenium provides various ways to automate these Keyboard Events, a few of which are:
+
+Automate keyboard events using the sendKeys() method of WebElement class.
+Automate keyboard events using Robot class.
+And Automate keyboard events using Actions class.
+We already discussed the first two ways of handling the keyboard events using the "sendKeys()" method of WebDriver's WebElement class and "Robot class" in the articles given by corresponding links. In this article, we will specifically cover the details of the "Actions " class in Selenium WebDriver. Before going deep to understand the concepts of the "Actions " class, let's first understand why specifically "Actions " class is needed to handle those Keyboard Events?
+
+Why is Actions class needed to perform Keyboard actions using Selenium WebDriver?
+When we interact with a web application, there will be various scenarios when the user performs the following actions:
+
+Type in capital/Camel case letters: Wherever user need to type a word or letter in caps, he/she will press the "SHIFT" key and will type the necessary characters, and whatever characters will type while pressing the "SHIFT" key, will type as a capital letter.
+Copy & Paste Text: When we need to copy some text from one text box to another, we select the text by pressing "CTRL+A" they copy the text using "CTRL+C" and paste the text in the new text box by simply clicking in the text box and pressing keys "CTRL+V".
+
+These are very common user actions, which we perform on an almost daily basis. Now, as we discussed, Selenium WebDriver provides two ways to send any keyboard event to a web element:
+- sendKeys() method of WebElement class.
+- Actions class
+
+
+So, this is where the sendKeys() method of the WebElement class fails. In other words, it fails when we need to combine special keys such as "SHIFT", "CONTROL", etc. with the different key sequences, which we all know, is a prevalent scenario when we as a user are using any of the web applications.
+
+Therefore, this is where the Actions class of Selenium WebDriver comes into the picture, which provides various methods to specifically handle operations of these meta keyboard keys, which need to press while performing operations on the other keyboard keys. Let's see how we can handle such keyboard actions, using the Actions class of Selenium WebDriver.
+
+
+
+What is Actions Class in Selenium WebDriver?
+As we discussed above, Selenium WebDriver provides a class named "Actions", which provides various methods that can help in automating and simulating the Keyboard and Mouse actions. The below figure shows the exhaustive list of methods offered by Selenium Web Driver, and the highlighted ones are the most used methods for simulating the Keyboard actions
+
+Let's understand the Keyboard specific methods provided by the Actions Class:
+
+What are the different methods provided by the Actions class for Keyboard Events?
+As highlighted in the above screenshot, the Actions class majorly provide the following three methods for simulating the Keyboard events:
+
+- sendKeys(): This method sends a series of keystrokes to a given web element. This method has two overloaded formats:
+- sendKeys(CharSequence... KeysToSend): The following screenshot shows the syntactical details of this method:
+
+- keyboard events: sendKeys() method in Actions class of Selenium WebDriver
+
+This method sends a sequence of keys to a currently focused web element, i.e., if we want to send specific characters to a web element, that element must be first focussed, then only the mentioned characters will go to that web element.
+- sendKeys(WebElement element, CharSequence... KeysToSend): The following screenshot shows the syntactical details of this method:
+
+Overloaded sendKeys method of Actions Class
+This implementation of the sendKeys() method sends a sequence of characters/keys to a specific web element, which passes as the first parameter to the method. This method first focuses on the target web element and then performs the same action as sendKeys(CharSequence keys).
+
+- keyDown(): This method simulates a keyboard action when a specific keyboard key needs to press. So, whenever you need to press a key and then perform specific other actions, we can use the keyDown() method to keep the key pressed. E.g., say a user has to type some characters in Capital. Then to simulate user behavior, where the user presses the SHIFT  key and then presses the set of characters that need to type in Capital. This method is also available in the following two overloaded variants:
+
+- keyDown(CharSequence key): The following screenshot shows the syntactical details of this method:
+keyboard events keyDown method of Actions class in Selenium WebDriver
+
+This method presses the specified key on the currently focussed Web Element. This method generally presses the "Modifier keys" such as SHIFT, CTRL, etc. If you want to press the keyboard key on a specified web element, then that web element first needs to be focussed explicitly, and then this method needs to be invoked.
+- keyDown(WebElement element, CharSequence key): The following screenshot shows the syntactical details of this method:
+Overloaded keyDown method of Actions class in Selenium WebDriver
+
+This method first focusses on the web element, which has been passed as a parameter to the method and presses the mentioned key on that Web Element.
+- keyUp(): We use this method majorly in collaboration with the keyDown() method. The keyboard key which presses using the keyDown() method, doesn't get released automatically, so the same need to be explicitly released using the keyUp() method. So, similar to the keyDown() method, this method has two overloaded variants:
+
+- keyUp(CharSequence key): The following screenshot shows the syntactical details of this method:
+keyboard events keyUp method of Actions class in Selenium WebDriver
+
+This method releases the specified key on the currently focussed Web Element. If you want to release the keyboard key on a specified web element, then that web element first needs to be focussed explicitly, and then this method needs to be invoked.
+- keyUp(WebElement element, CharSequence key): The following screenshot shows the syntactical details of this method:
+Overloaded keyUp method of Actions class in Selenium WebDriver
+
+This method first focusses on the web element, which gets passed as a parameter to the method. Then, it releases the mentioned key on that Web Element.
+
+Conclusively, we are clear about all the keyboard specific methods provided by the Actions class. Subsequently, let's see how we can automate the user as mentioned above scenario using the methods provided by the Actions class of Selenium WebDriver.

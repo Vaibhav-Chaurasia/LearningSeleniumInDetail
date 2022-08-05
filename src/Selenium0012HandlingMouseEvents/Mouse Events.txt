@@ -1,0 +1,38 @@
+Mouse Actions in Selenium WebDriver
+Mouse actions in Selenium WebDriver provide a mechanism for automating low-level elementary interactions such as mouse clicks, mouse hover, mouse button actions; as well as complex low-level interactions such as mouse hover, drag & drop, click & hold, and more.
+
+Here is a brief list of mouse actions that are provided by the Action Class in Selenium:
+
+click() method
+- click() – Clicks on the current mouse position
+- click​(WebElement web_element) – Clicks in the middle of the given WebElement which is passed to the method
+
+doubleClick() method
+- doubleClick() – Double clicks on the current mouse position
+- doubleClick(WebElement web_element) – Double clicks in the middle of the given WebElement which is passed to the method
+
+clickAndHold() method
+- clickAndHold() – Clicks without releasing on the current mouse position
+- clickAndHold(WebElement web_element) – Clicks without releasing in the middle of the WebElement which is passed to the method
+
+contextClick() method
+- contextClick() – Performs a context click operation on the current mouse position
+- contextClick(WebElement web_element) – Performs a context click operation at the middle of the WebElement which is passed to the method
+
+dragAndDrop() method
+- dragAndDrop​(WebElement source_elem, WebElement target_elem) – Perform a click and hold operation in the middle of the source element (i.e. source_elem), moves to the location of the target element (i.e. target_elem), and release the mouse. On the successful execution of this method, the source element is dragged and dropped at the place where the target element is located
+- dragAndDropBy​(WebElement elem_source, int x_Offset, int y_Offset) – Perform a click and hold operation in the middle of the source element (i.e. source_elem) and move by a given offset available as x_Offset and y_Offset
+
+
+moveToElement() method
+- moveToElement​(WebElement elem_target) – Move the mouse to the middle of the element (i.e. elem_target) which is passed to the method
+- moveToElement​(WebElement target, int x_Offset, int y_Offset) – Move to an offset (x_Offset and y_Offset) from the WebElement’s in center viewpoint
+
+moveByOffset() method
+- moveByOffset​(int x_Offset, int y_Offset) – Move the mouse from the current position by the offset which is passed to the method
+
+release() method
+- release() – Release the depressed left mouse button which is pressed at the current mouse position
+- release(WebElement elem_target) – Release the depressed left mouse button which is pressed in the middle of the given WebElement (i.e. elem_target)
+
+click(), doubleClick(), contextClick(), moveToElement(), and release() are overloaded methods in the Action Class and the actions performed depends on the parameters passed to the methods.

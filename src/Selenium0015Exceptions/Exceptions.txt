@@ -1,0 +1,201 @@
+What is an Exceptions?
+An exception is an error that happens at the time of execution of a program. However, while running a program, programming languages generates an exception that should be handled to avoid your program to crash.
+
+The exception indicates that, although the event can occur, this type of event happens infrequently. When the method is not able to handle the Exception, it is thrown to its caller function. Eventually, when an exception is thrown out of the main function, the program is terminated abruptly.
+
+An exception is an event or a problem that arises during the execution of a program. When an exception occurs, the normal flow of program halts and an exception object is created. The program then tries to find someone that can handle the raised exception. The exception object contains a lot of debugging information, such as method hierarchy, the line number where the exception occurred, the type of exception, etc.
+
+When you start working with Selenium webdriver, you will come across different exceptions based on the code you write. The same code some times work properly and sometimes it simply doesn’t. Whenever you develop any script, you try to give the best quality code that works fine. But Unfortunately, sometimes exceptions come as side effects to the scripts that we develop and tends to fail. That’s why handling an exception is very important.
+
+Exception flow - Exceptions in Selenium - EdurekaException Handling mechanism follows a flow which is depicted in the above figure. But if an exception is not handled, it may lead to a system failure. That is why handling an exception is very important. Now let’s move further and understand what are the various categories of exceptions.
+
+
+
+Checked vs Unchecked Exception
+Basically, there are 2 types of exceptions in Selenium and they are as follows:
+- Checked Exception
+- Unchecked Exception
+
+
+Checked Exception
+It is an exception that occurs at compile time, also called compile time exceptions. If some code within a method throws a checked exception, then the method must either handle the exception or it must specify the exception using throws keyword.
+
+
+Unchecked Exception
+It is an exception that occurs at the time of execution and is called Runtime Exceptions. In C++, all exceptions are unchecked, but in Java, exceptions can be either checked or unchecked. So, it is not forced by the compiler to either handle or specify the exception. It is up to the programmers to specify or catch the exceptions.
+Unchecked exceptions are more catastrophic than the compile-time exception as it causes problems while running Automation pack in headless.
+
+
+
+
+Handling Selenium Exceptions
+Here, are some important standard using which you can handle Exceptions in Selenium WebDriver:
+
+Try-catch: This method can catch Exceptions, which uses a combination of the try and catch keywords. Try command indicates the start of the block, and Catch is placed at the end of the try block, which helps to resolve the Exception.
+try
+{
+// Code
+} catch (Exception e) {
+// Code for Handling exception
+}
+
+
+Multiple catch blocks: There are various types of Exceptions, and you can expect more than one exception from a single block of code. Multiple catches help you to handle every type of Exception separately with a separate block of code. It can be used for more than two catch blocks, and there is no limitation on the number of catch blocks.
+try
+{
+//Code
+} catch (ExceptionType1 e1) {
+//Code for Handling Exception 1
+} catch (ExceptionType2 e2) {
+//Code for Handling Exception 2
+}
+
+
+
+Throw: When you want to generate an Exception, the Throw keyword is used to throw Exception to handle it in the run time. When you are throwing an Exception without handling it, then they need to use Throw keyword.
+public static void anyFunction() throws Exception{
+
+try {
+// write your code here
+} Catch (Exception b) {
+// Do whatever you want to perform 
+// Throw the Exception back to the system
+throw(b);
+}
+}
+
+
+
+
+Multiple Exceptions: You can mention various Exceptions in the throws clause.
+public static void anyFunction() throws ExceptionType1, ExceptionType2{
+
+try {
+// write your code here
+} catch (ExceptionType1 e1) {
+// Code to handle exception 1
+} catch (ExceptionType1 e2) {
+// Code to handle exception 2
+}
+
+
+
+
+Finally: The Final keyword is used to create a block of code under the try block. It is the final code that helps you to executes irrespective of the occurrence of an exception
+try {
+//Code
+} catch (ExceptionType1 e1) {
+//Catch block
+} catch (ExceptionType2 e2) {
+//Catch block
+} catch (ExceptionType3 e3) {
+//Catch block
+} finally {
+//The finally block always executes.
+}
+
+
+
+
+Methods for displaying Exception
+You can also use the following methods to display Exception Information:
+- printStackTrace(): This function prints stack trace, name of the Exception, and other useful description.
+- toString(): This function returns a text message describing the exception name and description.
+- getMessage(): Helps to displays the description of the Exception.
+
+
+
+The complete list of exceptions in Selenium
+1. ConnectionClosedException: This exception takes place when there is a disconnection in the driver.
+
+2. ElementClickInterceptedException: The command could not be completed as the element receiving the events is concealing the element which was requested clicked.
+
+3. ElementNotInteractableException: This Selenium exception is thrown when an element is presented in the DOM but it is impossible to interact with such element.
+
+4. ElementNotSelectableException: This Selenium exception is thrown when an element is presented in the DOM but is unavailable for selection. Hence, it is impossible to interact with. This exception belongs to the same class as InvalidElementStateException. In such exceptions, the element is present on the web page, but the element cannot be selected. To handle this exception, the wait command must be used.
+
+5. ElementNotVisibleException: This type of Selenium exception takes place when an existing element in DOM has a feature set as hidden. In this situation, elements are there, but you can not see and interact with the WebDriver. This exception occurs when the WebDriver tries to find an element that is hidden or invisible. To handle this exception, it is essential that the exact reason is identified, which can be due to nested web elements or overlapping web elements. In the first case, you have to locate and correct the specific element. In the second case, use explicit wait.
+
+6. ErrorHandler.UnknownServerException: Exception is used as a placeholder if the server returns an error without a stack trace.
+
+7. ErrorInResponseException: This exception is thrown when a fault has occurred on the server-side. You can see it happens when interacting with the Firefox extension or the remote driver server.
+
+8. ImeActivationFailedException: This exception occurs when IME engine activation has failed.
+
+9. ImeNotAvailableException: This exception takes place when IME support is unavailable.
+
+10. InsecureCertificateException: Navigation made the user agent to hit a certificate warning, which is caused by an invalid or expired TLS certificate.
+
+11. InvalidArgumentException: This Selenium exception is thrown if an argument does not belong to the expected type.
+
+12. InvalidCookieDomainException: This happens when you try to add a cookie under a different domain rather than the current URL.
+
+13. InvalidCoordinatesException: This happens if the coordinates offered to an interacting operation are not valid.
+
+14. InvalidElementStateException: This Selenium exception occurs if a command cannot be finished as the element is invalid.
+
+15. InvalidSessionIdException: Takes place when the given session ID is not included in the list of active sessions, which means the session does not exist or is inactive either.
+
+16. InvalidSwitchToTargetException: Happens if the frame or window target to be switched does not exist.
+
+17. JavascriptException: This problem happens when executing JavaScript supplied by the user.
+
+18. JsonException: Happens when you afford to get the session capabilities where the session is not created.
+
+19. MoveTargetOutOfBoundsException: Takes place if the target provided to the ActionChains move() methodology is not valid. For example: out of the document.
+
+20. NoAlertPresentException: Happens when you switch to no presented alert. Happens when the user is trying to you switch to an alert which is not present. In simple terms, it means that the test is too quick and is trying to find an alert that has not yet been opened by the browser.
+
+To handle or simply avoid this exception, use explicit or fluent wait in all events where an alert is expected.
+
+21. NoSuchAttributeException: Occurs when the attribute of the element could not be found.
+
+22. NoSuchContextException: Happens in mobile device testing and is thrown by ContextAware.
+
+23. NoSuchCookieException: This exception is thrown if there is no cookie matching with the given path name found amongst the associated cookies of the current browsing context’s active document.
+
+24. NoSuchElementException: Happens if an element could not be found. Happens when the locators are unable to find or access elements on the web page or application. Ideally, the exception occurs due to the use of incorrect element locators in the findElement(By, by) method.
+
+To handle this exception, use the wait command. Use Try/Catch to ensure that the program flow is interrupted if the wait command doesn’t help.
+
+25. NoSuchFrameException: Takes place if frame target to be switch does not exist. Similar to NoSuchWindowException, the NoSuchFrameException occurs when switching between multiple frames is not possible.
+
+26. NoSuchWindowException: Occurs if window target to be switched does not exist. One of the most frequent exceptions in Selenium Webdriver, NoSuchWindowException occurs if the current list of windows is not updated. The previous window does not exist, and you can’t switch to it.
+
+27. NotFoundException: This exception is a subclass of WebDriverException. It happens when an element on the DOM does not exist.
+
+28. RemoteDriverServerException: This Selenium exception is thrown when the server does not respond due to the problem that the capabilities described are not proper.
+
+29. ScreenshotException: It is impossible to capture a screen.
+
+30. ScriptTimeoutException: Thrown when executeAsyncScript takes more time than the given time limit to return the value.
+
+31. SessionNotCreatedException: A new session could not be successfully created.
+
+32. SessionNotFoundException: The WebDriver is performing the action right after you quit the browser.
+
+33. StaleElementReferenceException: This Selenium exception happens if the web element is detached from the current DOM. This exception occurs when the web element is no longer part of the web page. The element may have been part of the source code, but it is no longer part of the window. There can be multiple reasons for this exception. It can occur either from a switch to a different page, the element is no longer part of DOM or due to frame/window switch. To handle this exception, you can either use Dynamic Xpath for handling DOM operations or try to use the Page Factory Model or try to access the element in loops before throwing the exception.
+
+34. TimeoutException: Thrown when there is not enough time for a command to be completed. This exception is thrown if the command did not execute or complete within wait time. As already mentioned, waits are used to avoid NoSuchElementException. However, TimeoutException will be thrown after the page components fail to load within wait time. Avoiding this exception is simple. All one needs to do is to calculate the average page load time and adjust the wait time accordingly.
+
+35. UnableToCreateProfileException: You can open a browser with certain options using profiles, but sometimes a new version of the Selenium driver server or browser may not support the profiles.
+
+36. UnableToSetCookieException: Occurs if a driver is unable to set a cookie.
+
+37. UnexpectedAlertPresentException: This Selenium exception happens when there is the appearance of an unexpected alert.
+
+38. UnexpectedTagNameException: Happens if a support class did not get a web element as expected.
+
+39. UnhandledAlertException: It happens when there is an alert, but WebDriver is unable to perform Alert operation.
+
+40. UnknownMethodException: Thrown when the requested command matches with a known URL but not matching with a methodology for that URL.
+
+41. UnreachableBrowserException: This Selenium exception happens if the browser is unable to be opened or has crashed because of some reasons.
+
+42. UnsupportedCommandException: Occurs when remote WebDriver does not send valid commands as expected.
+
+43. WebDriverException: This takes place when the WebDriver is performing the action right after you close the browser.
+
+44. InvalidSelectorException: This exception occurs due to an incorrect selector. More often than not, the selector syntax is wrong. To avoid this exception, first, check the locator syntax. If it is incorrect, make sure the locator is syntactically correct.
+
+45. NoSuchSessionException: As the name suggests, the exception is thrown if a method is called post the browser is closed. Other reasons for this exception include a browser crash. To avoid this handle, ensure that your browser is updated and stable.

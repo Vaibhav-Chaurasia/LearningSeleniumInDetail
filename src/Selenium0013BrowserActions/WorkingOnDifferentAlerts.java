@@ -58,5 +58,4 @@ public class WorkingOnDifferentAlerts {
 //		alert.sendKeys("password");
 //		alert.accept();
 	}
-
 }

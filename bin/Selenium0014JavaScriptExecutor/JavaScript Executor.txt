@@ -1,0 +1,70 @@
+What is JavascriptExecutor in Selenium?
+In simple words, JavascriptExecutor is an interface that is used to execute JavaScript with Selenium. To simplify the usage of JavascriptExecutor in Selenium, think of it as a medium that enables the WebDriver to interact with HTML elements within the browser. JavaScript is a programming language that interacts with HTML in a browser, and to use this function in Selenium, JavascriptExecutor is required.
+
+Indicates that a driver can execute JavaScript, providing access to the mechanism to do so.
+Because of cross domain policies browsers enforce your script execution may fail unexpectedly and without adequate error messaging. This is particularly pertinent when creating your own XHR request or when trying to access another frame. Most times when troubleshooting failure it's best to view the browser's console after executing the WebDriver request.
+
+
+Components of JavascriptExecutor in Selenium
+JavascriptExecutor consists of two methods that handle all essential interactions using JavaScript in Selenium.
+
+A) executeScript method â€“ This method executes the test script in the context of the currently selected window or frame. The script in the method runs as an anonymous function. If the script has a return statement, the following values are returned:
+- For an HTML element, the method returns a WebElement.
+- For a decimal, the method returns Long.
+- For a non-decimal number, the method returns Long.
+- For a Boolean, the method returns Boolean.
+- For other cases, the method returns a String.
+ 
+
+B) executeAsyncScript method â€“ This method executes the asynchronous piece of JavaScript on the current window or frame. An asynchronous script will be executed while the rest of the page continues parsing, which enhances responsiveness and application performance.
+
+
+How to get started with JavascriptExecutor
+
+- Import the package
+- Create a reference
+- Call the JavascriptExecutor methods
+
+Syntax
+[java]
+//importing the package
+Import org.openqa.selenium.JavascriptExecutor;
+//creating a reference 
+JavascriptExecutor js = (JavascriptExecutor) driver;
+//calling the method 
+js.executeScript(script, args);
+[/java]
+
+
+How JavascriptExecutor works in Selenium
+Let's try to understand the working of JavascriptExecutor using a simple example and implementation of both the JavascriptExecutor methods.
+
+
+JavascriptExecutor in Selenium to click a button
+[java]
+js.executeScript("document.getElementByID('element id ').click();");
+[/java]
+
+
+JavascriptExecutor in Selenium to send text
+[java]
+js.executeScript("document.getElementByID('element id ').value = 'xyz';");
+[/java]
+
+
+JavascriptExecutor in Selenium to interact with checkbox
+[java]
+js.executeScript("document.getElementByID('element id ').checked=false;");
+[/java]
+
+
+JavascriptExecutor in Selenium to refresh the browser window
+[java]
+js.executeScript("location.reload()");
+[/java]
+
+
+Why use JavascriptExecutor in Selenium?
+Sometimes, Selenium WebDriver alone will not be able to perform certain operations or interact with web elements. In that case, JavaScript is needed to make sure those actions are being performed accurately. To understand its importance, let's consider an example.
+
+Let's suppose a tester has written an automation script to click a few buttons, but there seems to be an issue due to which the script fails every time. To resolve this, the tester uses JavascriptExecutor.

@@ -7,7 +7,7 @@ public class LaunchingFirefoxBrowser {
 	public static void main(String[] args) {
 
 		//Setting up the firefox browser launch - Giving browser name and path.
-		System.setProperty("webdriver.gecko.driver","geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
 		WebDriver driver = new FirefoxDriver();
 		
 		String baseUrl = "https://www.google.com";

@@ -20,7 +20,7 @@ public class NumpadKeys {
       
         @SuppressWarnings("unused")
 		WebElement fullName = driver.findElement(By.id("userName"));
-        fullName.sendKeys("");
+        fullName.click();
         actions.keyDown(Keys.NUMPAD0).build().perform();
         actions.keyDown(Keys.NUMPAD1).build().perform();
         actions.keyDown(Keys.NUMPAD2).build().perform();
@@ -31,5 +31,16 @@ public class NumpadKeys {
         actions.keyDown(Keys.NUMPAD7).build().perform();
         actions.keyDown(Keys.NUMPAD8).build().perform();
         actions.keyDown(Keys.NUMPAD9).build().perform();
+        
+        
+//      WebElement pinCode = driver.findElement(By.id("pincodeInputId"));
+//		pinCode.click();
+//		actions.sendKeys(Keys.chord(Keys.NUMPAD1)).
+//		sendKeys(Keys.chord(Keys.NUMPAD1)).
+//		sendKeys(Keys.chord(Keys.NUMPAD0)).
+//		sendKeys(Keys.chord(Keys.NUMPAD0)).
+//		sendKeys(Keys.chord(Keys.NUMPAD0)).
+//		sendKeys(Keys.chord(Keys.NUMPAD1)).
+//		build().perform();
 	}
 }

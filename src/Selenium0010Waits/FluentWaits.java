@@ -14,14 +14,14 @@ public class FluentWaits {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		System.setProperty ("webdriver.chrome.driver",".\\chromedriver.exe" );
+		System.setProperty ("webdriver.chrome.driver","chromedriver.exe" );
 		WebDriver driver = new ChromeDriver();
 		
 		String eTitle = "Demo Guru99 Page";
 		String aTitle = "" ;
 		
 		// launch Chrome and redirect it to the Base URL
-		driver.get("http://demo.guru99.com/test/guru99home/" );
+		driver.get("http://demo.guru99.com/test/guru99home/");
 		
 		//Maximizes the browser window
 		driver.manage().window().maximize() ;
@@ -56,9 +56,10 @@ public class FluentWaits {
 				.pollingEvery(Duration.ofSeconds(5))
 				.withMessage("Waiting")
 				.ignoring(NoSuchElementException.class);
-		WebElement clickTheLink = wait.until(new Function<WebDriver, WebElement>(){
+		
+		WebElement clickTheLink = wait.until(new Function<WebDriver, WebElement>() {
 
-			public WebElement apply(WebDriver driver ) {
+			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.xpath("//a//i[@class='icon-suitcase']"));
 			}
 		});

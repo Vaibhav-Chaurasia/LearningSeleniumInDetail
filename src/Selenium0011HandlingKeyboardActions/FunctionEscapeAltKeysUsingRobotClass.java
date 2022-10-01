@@ -59,5 +59,10 @@ class FunctionEscapeAltKeysUsingRobotClass {
 		robot.keyPress(KeyEvent.VK_ALT); //This closes the chrome
 		robot.keyPress(KeyEvent.VK_F4);
 		Thread.sleep(2000);
+		
+		
+		//To write string or integer
+		//robot.keyPress(KeyEvent.VK_H);
+		//robot.keyPress(KeyEvent.VK_4);
 	}	 
 }

@@ -51,5 +51,15 @@ public class DropDown {
 
 		String dropDownTagName = dropDown.getTagName();
 		System.out.println("Dropdown Tag Name  is - " + dropDownTagName);
+		
+		
+//		Using Select Method for dropdown and Multilist as well
+//		System.out.println("Selecting options from dropdown");
+//
+//		WebElement priceDropdown = driver.findElement(By.cssSelector("div[class='_2b0bUo']>div[class='_3uDYxP']>select"));
+//		Select priceFromDropdown = new Select(priceDropdown);
+//		priceFromDropdown.selectByIndex(2);
+//		priceFromDropdown.selectByVisibleText("Option 2");
+//		priceFromDropdown.selectByValue("selenium");
 	}
 }

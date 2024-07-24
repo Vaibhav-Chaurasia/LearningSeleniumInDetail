@@ -34,5 +34,8 @@ public class OpenAndWorkingInNewWindow {
 				driver.switchTo().window(handle);
 			}
 		}
+		
+//		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+//		driver.switchTo().window(tabs.get(1));
 	}
 }

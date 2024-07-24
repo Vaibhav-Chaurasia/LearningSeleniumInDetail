@@ -20,11 +20,11 @@ public class OpenAndWorkingInNewTabUsingWebDriver {
 
 		driver.findElement(By.xpath("//*[contains(@href,'popup.php')]")).click();			
 
-		String MainWindow=driver.getWindowHandle();		
+		String MainWindow = driver.getWindowHandle();		
 
 		// To handle all new opened window.				
-		Set<String> s1=driver.getWindowHandles();		
-		Iterator<String> i1=s1.iterator();		
+		Set<String> s1 = driver.getWindowHandles();		
+		Iterator<String> i1 = s1.iterator();		
 
 		while(i1.hasNext())			
 		{		

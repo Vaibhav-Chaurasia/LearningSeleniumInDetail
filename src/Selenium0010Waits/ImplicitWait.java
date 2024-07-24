@@ -13,7 +13,7 @@ public class ImplicitWait {
 		System.setProperty ("webdriver.chrome.driver","chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 
-		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS); //Implicit wait for 10 seconds for each and every element. As it is executed at global level.
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); //Implicit wait for 10 seconds for each and every element. As it is executed at global level.
 
 		String eTitle = "Demo Guru99 Page";
 		String aTitle = "";

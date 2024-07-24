@@ -7,11 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TextArea {
-	
+
 	public static void main(String[] args) throws InterruptedException {
-		
+
 		/*Radio button - User can only select one option from the multiple options.*/
-		
+
 		System.setProperty("webdriver.chrome.driver","chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 
@@ -21,8 +21,8 @@ public class TextArea {
 		driver.manage().window().maximize();
 
 		Thread.sleep(2000);
-		
-		
+
+
 		/*-----------------------------------------Scroll the Page-------------------------------------------------------*/
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 1000);");
 		long lastHeight = (long) ((JavascriptExecutor) driver).executeScript("return document.body.scrollHeight");
@@ -40,16 +40,15 @@ public class TextArea {
 			lastHeight = newHeight;
 		}
 		/*-----------------------------------------------------------------------------------------------------------------*/
-		
+
 		WebElement textArea = driver.findElement(By.xpath("//textarea[@id='delete_user_comment']"));
 		textArea.sendKeys("Comment for better reach.");
 		Thread.sleep(2000);
-		
+
 		textArea.clear();
-		
+
 		System.out.println("The textArea name is - " + textArea.getText());
 		System.out.println("The textArea aria-role is - " + textArea.getAriaRole());
 		System.out.println("The textArea Tag Name is - " + textArea.getTagName());
 	}
-
 }

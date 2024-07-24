@@ -12,7 +12,7 @@ public class FindElements {
 	public static void main(String[] args) {
 
 		//Setting up the chrome browser launch - Giving browser name and path.
-		System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 
 		String baseUrl = "http://seleniumpractise.blogspot.com/2016/08/how-to-handle-calendar-in-selenium.html";
@@ -31,7 +31,7 @@ public class FindElements {
 		// now we will iterate all values and will capture the text. We will select when date is 28
 		for(WebElement ele : allDates)
 		{
-			String date=ele.getText();
+			String date = ele.getText();
 
 			// once date is 28 then click and break
 			if(date.equalsIgnoreCase("28"))
@@ -42,5 +42,4 @@ public class FindElements {
 		}
 		/*------------------------------------------------------------------------------------------------------------------*/
 	}
-
 }

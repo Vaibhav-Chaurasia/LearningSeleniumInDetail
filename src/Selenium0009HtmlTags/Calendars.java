@@ -31,7 +31,7 @@ public class Calendars {
 		// now we will iterate all values and will capture the text. We will select when date is 28
 		for(WebElement ele : allDates)
 		{
-			String date=ele.getText();
+			String date = ele.getText();
 
 			// once date is 28 then click and break
 			if(date.equalsIgnoreCase("28"))

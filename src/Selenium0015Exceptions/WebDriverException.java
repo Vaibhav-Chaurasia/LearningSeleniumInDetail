@@ -18,5 +18,4 @@ public class WebDriverException {
 		//Invalid URL which cannot be reached
 		driver.get("https://www.softwaretestinghelp.");
 	}
-
 }

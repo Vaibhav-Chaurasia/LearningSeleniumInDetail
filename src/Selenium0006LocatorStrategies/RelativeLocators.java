@@ -1,16 +1,24 @@
 package Selenium0006LocatorStrategies;
 
+import java.time.Duration;
+import java.util.function.Function;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.locators.RelativeLocator;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 
 public class RelativeLocators {
 	public static void main(String[] args) throws InterruptedException {
 
 		//Setting up the chrome browser launch - Giving browser name and path.
 		System.setProperty("webdriver.chrome.driver","chromedriver.exe");
-
+		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--remote-allow-origins=*");
 		ChromeDriver driver = new ChromeDriver(options);
@@ -21,6 +29,21 @@ public class RelativeLocators {
 
 		//Maximizing the window
 		driver.manage().window().maximize();
+		
+		
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)							
+				.withTimeout(Duration.ofSeconds(30)) 			
+				.pollingEvery(Duration.ofSeconds(1)) 			
+				.ignoring(NoSuchElementException.class);
+		
+		WebElement clickTheLink = wait.until(new Function<WebDriver, WebElement>() {
+
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.id("emaill"));
+			}
+		});
+		
+		clickTheLink.click();
 		
 		//Using Above
 		By emailLocator = RelativeLocator.with(By.id("email")).above(By.id("userpassword"));

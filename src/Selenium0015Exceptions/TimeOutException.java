@@ -24,5 +24,4 @@ public class TimeOutException {
 		@SuppressWarnings("unused")
 		WebElement loginHeading = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3[text()='Login']")));
 	}
-
 }

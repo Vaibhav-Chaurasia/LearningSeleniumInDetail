@@ -17,5 +17,4 @@ public class SessionNotCreatedException {
 	
 		driver.findElement(By.id("email")).hashCode();
 	}
-
 }

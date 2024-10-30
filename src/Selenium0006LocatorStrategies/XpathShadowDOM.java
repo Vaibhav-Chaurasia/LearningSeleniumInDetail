@@ -1,9 +1,11 @@
 package Selenium0006LocatorStrategies;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class XpathShadowDOM {
 
@@ -11,7 +13,10 @@ public class XpathShadowDOM {
 
 		//Setting up the chrome browser launch - Giving browser name and path.
 		System.setProperty("webdriver.chrome.driver","chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+		
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		ChromeDriver driver = new ChromeDriver(options);
 
 		String baseUrl = "https://www.alodokter.com/";
 		driver.get(baseUrl);
@@ -34,17 +39,19 @@ public class XpathShadowDOM {
 		 * i.e. element immediately after which shadow starts and so on.
 		 * */
 		
-		
+		//Method 1
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		WebElement name = (WebElement) jse.executeScript("return document.querySelector('hero-view').shadowRoot.querySelector('input')");
-		String js = "arguments[0].setAttribute('value', 'Vaibhav Chaurasia')";
-		jse.executeScript(js, name);
+		WebElement name = (WebElement) jse.executeScript("return document.querySelector('top-navbar-transparent-view').shadowRoot.querySelector('form > input')");
+		name.sendKeys("abc");
 		
-		
-		//WebElement searchButton = (WebElement) jse.executeScript("return document.querySelector('hero-view').shadowRoot.querySelector('input[id=\"buttonSearch\"]')");
-		WebElement searchButton = (WebElement) jse.executeScript("return document.querySelector('hero-view').shadowRoot.querySelector('a')");
-		
-		jse.executeScript("arguments[0].click();", searchButton);
+		//Method 2
+		//getShadowRoot method introduced in selenium 4
+		WebElement shadowHost = driver.findElement(By.id("top-navbar-view"));
+		SearchContext shadowRoot = shadowHost.getShadowRoot();
+		String text = (String) shadowRoot.findElement(By.cssSelector("#searchinput")).getAttribute("id");
+		System.out.println(text);
+		shadowRoot.findElement(By.cssSelector("#searchinput")).sendKeys("abc");
+	
 		
 	}
 }

@@ -1,20 +1,18 @@
 package Selenium0010Waits;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ImplicitWait {
 
-	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 
 		System.setProperty ("webdriver.chrome.driver","chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); //Implicit wait for 10 seconds for each and every element. As it is executed at global level.
-
+		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(10)); //Implicit wait for 10 seconds for each and every element. As it is executed at global level.
 		String eTitle = "Demo Guru99 Page";
 		String aTitle = "";
 
